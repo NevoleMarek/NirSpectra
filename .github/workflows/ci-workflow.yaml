@@ -1,0 +1,13 @@
+name: CI Workflow
+on: push
+
+jobs:
+  test-python-pylint:
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/datamole-ai/core-tools-pythonruntimeds:2.0
+    steps:
+      - name: Run Pylint
+        run: |
+          poetry install
+          poetry run pylint --rcfile=.pylintrc --disable=R,C nirspectra

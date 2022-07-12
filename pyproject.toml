@@ -1,0 +1,29 @@
+[[tool.poetry.source]]
+name = "dtml"
+url = "https://datamole.jfrog.io/artifactory/api/pypi/pypi-general/simple"
+secondary = true
+
+[tool.poetry]
+name = "nirspectra"
+version = "0.1.0"
+description = ""
+authors = ["Your name (or your organization/company/team) <your.name.(or.your.organization/company/team)@datamole.cz>"]
+
+[tool.poetry.dependencies]
+python = ">=3.10,<3.11"
+pandas = "*"
+numpy = "*"
+matplotlib = "*"
+scikit-learn = "*"
+dart = { version = "^1.3", source = "dtml" }
+mlflow = "~1.11"
+
+[tool.poetry.dev-dependencies]
+jupyterlab = "*"
+nbconvert = "*"
+jupytext = "*"
+pylint = "*"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"

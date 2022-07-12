@@ -1,0 +1,15 @@
+#!/bin/bash
+
+docker run \
+  --rm -it \
+  --env-file $(pwd)/.env \
+  --env-file $(pwd)/.env.secrets \
+  --volume $(pwd):$(pwd) \
+  --volume /mnt/nfsshare:/mnt/nfsshare \
+  --workdir $(pwd) \
+  --volume pyenv:/root/.pyenv:rw \
+  --volume penv:/root/.cache/pypoetry/virtualenvs:rw \
+  --volume azure:/root/.azure:rw \
+  --net host \
+  ghcr.io/datamole-ai/core-tools-pythonruntimeds:2.0 \
+  "$@"
